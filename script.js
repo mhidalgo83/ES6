@@ -198,6 +198,7 @@ new Person("John").myFriends(friends);
 */
 
 //ES6
+/*
 function Person(name) {
   this.name = name;
 }
@@ -210,3 +211,33 @@ Person.prototype.myFriends = function(friends) {
 
 var friends = ["Bob", "Jane", "Mark"];
 new Person("John").myFriends(friends);
+*/
+
+//Destructuring
+//ES5
+/*
+var john = ["John", 26];
+var name = john[0];
+var age = john[1];
+*/
+
+//ES6
+const [name, year] = ["John", 26];
+console.log(name, year);
+
+const obj = {
+  firstName: "John",
+  lastName: "Smith"
+};
+
+const { firstName, lastName } = obj;
+console.log(firstName, lastName);
+
+function calcAgeRetirement(year) {
+  const age = new Date().getFullYear() - year;
+  return [age, 65 - age];
+}
+
+const [age1, retirement] = calcAgeRetirement(1990);
+console.log(age1);
+console.log(retirement);
