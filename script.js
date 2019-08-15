@@ -420,7 +420,7 @@ var john = new SmithPerson("John", 1990);
 */
 
 //Maps
-
+/*
 const question = new Map();
 question.set(
   "question",
@@ -444,7 +444,7 @@ if (question.has(4)) {
 /*question.forEach((value, key) => {
   console.log(`This is the ${key} key, and it's set to ${value}.`);
 });*/
-
+/*
 for (let [key, value] of question.entries()) {
   if (typeof key === "number") {
     console.log(`Answer ${key}: ${value}.`);
@@ -453,3 +453,37 @@ for (let [key, value] of question.entries()) {
 
 const ans = parseInt(prompt("Write the correct answer"));
 console.log(question.get(ans === question.get("correct")));
+*/
+
+//Classes
+//ES5
+
+var Person5 = function(name, yearOfBirth, job) {
+  (this.name = name), (this.yearOfBirth = yearOfBirth), (this.job = job);
+};
+
+Person5.prototype.calculateAge = function() {
+  var age = new Date().getFullYear - this.yearOfBirth;
+  console.log(age);
+};
+
+var john5 = new Person5("John", 1983, "teacher");
+
+//ES6
+class Person6 {
+  constructor(name, yearOfBirth, job) {
+    (this.name = name), (this.yearOfBirth = yearOfBirth), (this.job = job);
+  }
+
+  calculateAge() {
+    const age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+  }
+
+  static greeting() {
+    console.log("Hey there");
+  }
+}
+
+Person6.greeting();
+const john6 = new Person6("John", 1983, "teacher");
