@@ -520,6 +520,7 @@ johnAth5.wonMedal();
 */
 
 //ES6
+/*
 class Person6 {
   constructor(name, yearOfBirth, job) {
     (this.name = name), (this.yearOfBirth = yearOfBirth), (this.job = job);
@@ -552,3 +553,39 @@ class Athlete6 extends Person6 {
 const johnAth6 = new Athlete6("John", 1990, "swimmer", 9, 2);
 johnAth6.wonMedal();
 johnAth6.calculateAge();
+*/
+
+//Need two objects, a park object and a street object
+
+//City object
+class City {
+  constructor(name, buildYear) {
+    (this.name = name), (this.buildYear = buildYear);
+  }
+}
+
+//Street object
+class Street extends City {
+  constructor(name, buildYear, size, length) {
+    super(name, buildYear);
+    size === undefined ? (size = "normal") : (size = size);
+    this.size = size;
+    this.length = length;
+  }
+}
+
+//Park
+class Park extends City {
+  constructor(name, buildYear, trees, size) {
+    super(name, buildYear);
+    this.trees = trees;
+    this.size = size;
+  }
+//Tree density
+  treeDensity() {
+    
+  }
+//Average age
+
+//Name of park if more than 1000 trees
+}
