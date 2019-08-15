@@ -343,7 +343,7 @@ Array.from(all).forEach(cur => (cur.style.color = "blue"));
 
 //Rest parameters
 //ES5
-
+/*
 function isFullAge5() {
   //console.log(arguments);
 
@@ -353,11 +353,11 @@ function isFullAge5() {
     console.log(2016 - cur >= 18);
   });
 }
-
+*/
 //isFullAge5(1990, 1999, 1995);
 
 //ES6
-
+/*
 function isFullAge6(...years) {
   years.forEach(cur => console.log(2016 - cur >= 18));
 }
@@ -386,3 +386,33 @@ function isFullAge6(limit, ...years) {
 }
 
 isFullAge6(21, 1990, 1999, 1995);
+*/
+//ES5 default parameters
+/*
+function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
+  lastName === undefined ? (lastName = "Smith") : (lastName = lastName);
+  nationality === undefined
+    ? (nationality = "American")
+    : (nationality = nationality),
+    (this.firstName = firstName),
+    (this.lastName = lastName),
+    (this.yearOfBirth = yearOfBirth),
+    (this.nationality = nationality);
+}
+
+
+*/
+
+//ES6
+function SmithPerson(
+  firstName,
+  yearOfBirth,
+  lastName = "Smith",
+  nationality = "American"
+) {
+  (this.firstName = firstName),
+    (this.lastName = lastName),
+    (this.yearOfBirth = yearOfBirth),
+    (this.nationality = nationality);
+}
+var john = new SmithPerson("John", 1990);
