@@ -85,6 +85,7 @@ console.log(n.startsWith("J"));
 console.log(n.endsWith("."));
 */
 //Arrow functions
+/*
 const years = [1999, 1982, 1937, 1964];
 
 //ES5
@@ -103,6 +104,7 @@ ages6 = years.map((el, index) => {
   return `Age element ${index + 1}: ${age}.`;
 });
 console.log(ages6);
+*/
 
 //Lexical 'this'
 
@@ -245,10 +247,10 @@ console.log(retirement);
 */
 
 //Arrays
-const boxes = document.querySelectorAll(".box");
+//const boxes = document.querySelectorAll(".box");
 
 //ES5
-
+/*
 var boxesArr5 = Array.prototype.slice.call(boxes);
 boxesArr5.forEach(function(cur) {
   cur.style.backgroundColor = "dodgerblue";
@@ -257,7 +259,7 @@ boxesArr5.forEach(function(cur) {
 //ES6
 const boxesArr6 = Array.from(boxes);
 boxesArr6.forEach(cur => (cur.style.backgroundColor = "dodgerblue"));
-
+*/
 //ES5
 /*
 for (var i = 0; i < boxesArr5.length; i++) {
@@ -281,7 +283,7 @@ for (const cur of boxesArr6) {
 */
 
 //ES5
-
+/*
 var ages = [12, 21, 14, 17, 18, 11];
 
 var full = ages.map(function(cur) {
@@ -294,3 +296,45 @@ console.log(ages[full.indexOf(true)]);
 //ES6
 console.log(ages5.findIndex(cur => cur >= 18));
 console.log(ages5.find(cur => cur >= 18));
+*/
+
+//Spread operator
+/*
+function addFourAges(a, b, c, d) {
+  return a + b + c + d;
+}
+
+var sum1 = addFourAges(30, 21, 18, 16);
+console.log(sum1);
+
+var sum2 = addFourAges(3, 1, 18, 16);
+console.log(sum2);
+
+var sum3 = addFourAges(4, 25, 18, 6);
+console.log(sum3);
+
+//ES5
+
+var ages = [18, 35, 42, 21];
+var sum4 = addFourAges.apply(null, ages);
+console.log(sum4);*/
+
+//ES6
+
+//const sum5 = addFourAges(...ages);
+//console.log(sum5);
+
+//ES6
+const familySmith = ["John", "Bob", "Mark"];
+
+const familyJones = ["Tim", "Mike", "Mary"];
+
+const bigFamily = [...familyJones, ...familySmith];
+console.log(bigFamily);
+
+const h = document.querySelector("h1");
+
+const boxes = document.querySelectorAll(".box");
+console.log(boxes);
+const all = [h, ...boxes];
+Array.from(all).forEach(cur => (cur.style.color = "blue"));
