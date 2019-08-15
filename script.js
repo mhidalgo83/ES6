@@ -325,6 +325,7 @@ console.log(sum4);*/
 //console.log(sum5);
 
 //ES6
+/*
 const familySmith = ["John", "Bob", "Mark"];
 
 const familyJones = ["Tim", "Mike", "Mary"];
@@ -338,3 +339,50 @@ const boxes = document.querySelectorAll(".box");
 console.log(boxes);
 const all = [h, ...boxes];
 Array.from(all).forEach(cur => (cur.style.color = "blue"));
+*/
+
+//Rest parameters
+//ES5
+
+function isFullAge5() {
+  //console.log(arguments);
+
+  var argsArr = Array.prototype.slice.call(arguments);
+
+  argsArr.forEach(function(cur) {
+    console.log(2016 - cur >= 18);
+  });
+}
+
+//isFullAge5(1990, 1999, 1995);
+
+//ES6
+
+function isFullAge6(...years) {
+  years.forEach(cur => console.log(2016 - cur >= 18));
+}
+
+isFullAge6(1990, 1999, 1995);
+
+//ES5
+//Adding arguments to function
+function isFullAge5(limit) {
+  //console.log(arguments);
+
+  //Need to slice off 0 index of array
+  var argsArr = Array.prototype.slice.call(arguments, 1);
+
+  argsArr.forEach(function(cur) {
+    console.log(2016 - cur >= limit);
+  });
+}
+
+isFullAge5(25, 1990, 1999, 1995);
+
+//ES6
+//Adding arguments to the function, don't need to slice of 0 index of array
+function isFullAge6(limit, ...years) {
+  years.forEach(cur => console.log(2016 - cur >= limit));
+}
+
+isFullAge6(21, 1990, 1999, 1995);
