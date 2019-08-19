@@ -569,8 +569,8 @@ class Street extends City {
   constructor(name, buildYear, length, size) {
     super(name, buildYear);
     size === undefined ? (size = "normal") : (size = size);
-    this.size = size;
     this.length = length;
+    this.size = size;
   }
 }
 
@@ -596,10 +596,11 @@ class Park extends City {
   }
 }
 
+//Parks
 const parkOne = new Park("Helm Park", 1983, 2000, 5050);
 const parkTwo = new Park("Silverbell Park", 1954, 500, 1000);
 const parkThree = new Park("El Rio Park", 2000, 50, 10000);
-
+//Array of park objects
 const parks = [parkOne, parkTwo, parkThree];
 
 //Name of park if more than 1000 trees
@@ -611,6 +612,7 @@ const mostTrees = () => {
   }
 };
 
+//Average age of each park
 const averageAge = () => {
   let sum = 0;
   for (const cur of parks) {
@@ -619,9 +621,49 @@ const averageAge = () => {
   console.log(`The average age of each park is ${sum / parks.length} years.`);
 };
 
+//Trees in each park
+const treesInPark = () => {
+  for (cur of parks) {
+    cur.treeDensity();
+  }
+};
+
+const streetOne = new Street("4th Ave", 1920, 5.5, "tiny");
+const streetTwo = new Street("Grant Rd", 1890, 21.5, "huge");
+const streetThree = new Street("El Camino Del Cerro", 1990, 10.2);
+const streetFour = new Street("Cortaro Rd", 1960, 12.4);
+
+const streets = [streetOne, streetTwo, streetThree, streetFour];
+
+const avgStreetLength = () => {
+  let sum = 0;
+  for (cur of streets) {
+    sum += cur.length;
+  }
+  console.log(
+    `The total length of these four streets is ${sum} miles, with the average street length being ${sum /
+      streets.length}.`
+  );
+};
+
+const sizeClassification = () => {
+  for (cur of streets) {
+    console.log(`${cur.name} is ${cur.size}, being ${cur.length} miles long.`);
+  }
+};
+
 const endOfYearReport = () => {
+  console.log(`Park Report`);
+  console.log(`-----------`);
+  treesInPark();
   mostTrees();
   averageAge();
+  console.log(`-----------`);
+  console.log(`Streets Report`);
+  console.log(`-----------`);
+  sizeClassification();
+  avgStreetLength();
+  console.log(`-----------`);
 };
 
 endOfYearReport();
