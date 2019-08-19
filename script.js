@@ -566,7 +566,7 @@ class City {
 
 //Street object
 class Street extends City {
-  constructor(name, buildYear, size, length) {
+  constructor(name, buildYear, length, size) {
     super(name, buildYear);
     size === undefined ? (size = "normal") : (size = size);
     this.size = size;
@@ -575,17 +575,31 @@ class Street extends City {
 }
 
 //Park
+
 class Park extends City {
-  constructor(name, buildYear, trees, size) {
+  constructor(name, buildYear, trees, area) {
     super(name, buildYear);
     this.trees = trees;
-    this.size = size;
+    this.area = area;
   }
-//Tree density
+  //Tree density
   treeDensity() {
-    
+    const numTrees = this.trees / this.area;
+    console.log(
+      `There are ${numTrees.toFixed(2)} trees per sq ft in ${this.name}.`
+    );
   }
-//Average age
 
-//Name of park if more than 1000 trees
+  parkAge() {
+    const parkAge = new Date().getFullYear() - this.buildYear;
+    console.log(parkAge);
+  }
+
+  //Name of park if more than 1000 trees
 }
+
+const parkOne = new Park("Helm Park", 1983, 2000, 5050);
+const parkTwo = new Park("Silverbell Park", 1954, 500, 1000);
+const parkThree = new Park("El Rio Park", 2000, 50, 10000);
+
+const parks = [parkOne, parkTwo, parkThree];
