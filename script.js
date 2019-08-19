@@ -591,11 +591,9 @@ class Park extends City {
   }
 
   parkAge() {
-    const parkAge = new Date().getFullYear() - this.buildYear;
-    console.log(parkAge);
+    const age = new Date().getFullYear() - this.buildYear;
+    return age;
   }
-
-  //Name of park if more than 1000 trees
 }
 
 const parkOne = new Park("Helm Park", 1983, 2000, 5050);
@@ -603,3 +601,27 @@ const parkTwo = new Park("Silverbell Park", 1954, 500, 1000);
 const parkThree = new Park("El Rio Park", 2000, 50, 10000);
 
 const parks = [parkOne, parkTwo, parkThree];
+
+//Name of park if more than 1000 trees
+const mostTrees = () => {
+  for (const cur of parks) {
+    if (cur.trees >= 1000) {
+      console.log(`${cur.name} has more than 1000 trees.`);
+    }
+  }
+};
+
+const averageAge = () => {
+  let sum = 0;
+  for (const cur of parks) {
+    sum += cur.parkAge();
+  }
+  console.log(`The average age of each park is ${sum / parks.length} years.`);
+};
+
+const endOfYearReport = () => {
+  mostTrees();
+  averageAge();
+};
+
+endOfYearReport();
